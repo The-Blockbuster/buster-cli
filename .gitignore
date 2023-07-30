@@ -1,7 +1,7 @@
 .DS_Store
 tmp-project
 package-lock.json
-.idea
+.idea/
 neardev/dev-account*
 
 # Logs
