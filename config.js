@@ -7,12 +7,12 @@ function getConfig(env) {
     case 'localnet':
         config = {
             networkId: process.env.BUSTER_CLI_LOCALNET_NETWORK_ID || 'localnet',
-            nodeUrl: process.env.BUSTER_CLI_LOCALNET_RPC_SERVER_URL || process.env.BUSTER_NODE_URL || 'http://127.0.0.1:59011',
-            keyPath: process.env.BUSTER_CLI_LOCALNET_KEY_PATH || `${process.env.HOME}/.buster/localnet_multi/node0/validator_key.json`,
+            nodeUrl: process.env.BUSTER_CLI_LOCALNET_RPC_SERVER_URL || process.env.BUSTER_NODE_URL || 'http://127.0.0.1:3030',
+            keyPath: process.env.BUSTER_CLI_LOCALNET_KEY_PATH || `${process.env.HOME}/.buster/validator_key.json`,
             walletUrl: process.env.BUSTER_WALLET_URL || 'https://localhost:1234',
             contractName: CONTRACT_NAME,
             helperUrl: process.env.BUSTER_HELPER_URL || 'http://localhost:3000',
-            helperAccount: process.env.BUSTER_HELPER_ACCOUNT || 'node0',
+            helperAccount: process.env.BUSTER_HELPER_ACCOUNT || 'node',
             explorerUrl: process.env.BUSTER_EXPLORER_URL || 'http://localhost:9001',
         };
         break;
