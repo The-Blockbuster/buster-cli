@@ -4,8 +4,8 @@ const path = require('path');
 const MergeKeyStore = keyStores.MergeKeyStore;
 const UnencryptedFileSystemKeyStore = keyStores.UnencryptedFileSystemKeyStore;
 
-const CREDENTIALS_DIR = '.near-credentials';
-const PROJECT_KEY_DIR = './neardev';
+const CREDENTIALS_DIR = '.buster-credentials';
+const PROJECT_KEY_DIR = './busterdev';
 
 module.exports = async function createKeyStore() {
     // ./neardev is an old way of storing keys under project folder. We want to fallback there for backwards compatibility

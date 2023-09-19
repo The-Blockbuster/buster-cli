@@ -3,6 +3,42 @@ const CONTRACT_NAME = process.env.CONTRACT_NAME;
 function getConfig(env) {
     let config;
     switch (env) {
+
+    case 'production':
+    case 'mainnet':
+        config = {
+            networkId: 'mainnet',
+            nodeUrl: process.env.BUSTER_CLI_MAINNET_RPC_SERVER_URL || 'http://14.63.24.92:3030',
+            contractName: CONTRACT_NAME,
+            walletUrl: 'https://wallet.buster.org',
+            helperUrl: 'https://helper.mainnet.buster.org',
+            helperAccount: 'buster',
+            explorerUrl: 'https://explorer.mainnet.buster.org',
+        };
+        break;
+        // config = {
+        //     networkId: 'mainnet',
+        //     nodeUrl: process.env.BUSTER_CLI_MAINNET_RPC_SERVER_URL || 'https://rpc.mainnet.buster.org',
+        //     contractName: CONTRACT_NAME,
+        //     walletUrl: 'https://wallet.buster.org',
+        //     helperUrl: 'https://helper.mainnet.buster.org',
+        //     helperAccount: 'buster',
+        //     explorerUrl: 'https://explorer.mainnet.buster.org',
+        // };
+        // break;
+
+    case 'development':
+    case 'testnet':
+        config = {
+            networkId: 'testnet',
+            nodeUrl: process.env.BUSTER_CLI_TESTNET_RPC_SERVER_URL || 'http://14.63.24.92:3030',
+            contractName: CONTRACT_NAME,
+            walletUrl: 'https://wallet.testnet.buster.org',
+            helperUrl: 'https://helper.testnet.buster.org',
+            helperAccount: 'testnet',
+            explorerUrl: 'https://explorer.testnet.buster.org',
+        };
+        break;
     case 'local':
     case 'localnet':
         config = {
@@ -42,71 +78,6 @@ function getConfig(env) {
     //     };
     //     break;
 
-    case 'production':
-    case 'mainnet':
-        config = {
-            networkId: 'mainnet',
-            nodeUrl: process.env.BUSTER_CLI_MAINNET_RPC_SERVER_URL || 'https://rpc.mainnet.buster.org',
-            contractName: CONTRACT_NAME,
-            walletUrl: 'https://wallet.buster.org',
-            helperUrl: 'https://helper.mainnet.buster.org',
-            helperAccount: 'buster',
-            explorerUrl: 'https://explorer.mainnet.buster.org',
-        };
-        break;
-    case 'development':
-    case 'testnet':
-        config = {
-            networkId: 'testnet',
-            nodeUrl: process.env.BUSTER_CLI_TESTNET_RPC_SERVER_URL || 'https://rpc.testnet.buster.org',
-            contractName: CONTRACT_NAME,
-            walletUrl: 'https://wallet.testnet.buster.org',
-            helperUrl: 'https://helper.testnet.buster.org',
-            helperAccount: 'testnet',
-            explorerUrl: 'https://explorer.testnet.buster.org',
-        };
-        break;
-    case 'betanet':
-        config = {
-            networkId: 'betanet',
-            nodeUrl: process.env.BUSTER_CLI_BETANET_RPC_SERVER_URL || 'https://rpc.betanet.buster.org',
-            contractName: CONTRACT_NAME,
-            walletUrl: 'https://wallet.betanet.buster.org',
-            helperUrl: 'https://helper.betanet.buster.org',
-            helperAccount: 'betanet',
-            explorerUrl: 'https://explorer.betanet.buster.org',
-        };
-        break;
-    case 'guildnet':
-        config = {
-            networkId: 'guildnet',
-            nodeUrl: process.env.BUSTER_CLI_GUILDNET_RPC_SERVER_URL || 'https://rpc.openshards.io',
-            contractName: CONTRACT_NAME,
-            walletUrl: 'https://wallet.openshards.io',
-            helperUrl: 'https://helper.openshards.io',
-            helperAccount: 'guildnet',
-        };
-        break;
-    case 'shardnet':
-        config = {
-            networkId: 'shardnet',
-            nodeUrl: process.env.BUSTER_CLI_SHARDNET_RPC_SERVER_URL || 'https://rpc.shardnet.buster.org',
-            contractName: CONTRACT_NAME,
-            walletUrl: 'https://wallet.shardnet.buster.org',
-            helperUrl: 'https://helper.shardnet.buster.org',
-            helperAccount: 'shardnet',
-            explorerUrl: 'https://explorer.shardnet.buster.org',
-        };
-        break;
-    case 'test':
-    case 'ci':
-        config = {
-            networkId: 'shared-test',
-            nodeUrl: process.env.BUSTER_CLI_CI_RPC_SERVER_URL || 'https://rpc.ci-testnet.buster.org',
-            contractName: CONTRACT_NAME,
-            masterAccount: 'test.buster',
-        };
-        break;
     default:
         throw Error(`Unconfigured environment '${env}'. Can be configured in src/config.js.`);
     }
