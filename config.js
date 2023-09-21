@@ -8,7 +8,7 @@ function getConfig(env) {
     case 'mainnet':
         config = {
             networkId: 'mainnet',
-            nodeUrl: process.env.BUSTER_CLI_MAINNET_RPC_SERVER_URL || 'http://14.63.24.92:36113', // 1컴
+            nodeUrl: process.env.BUSTER_CLI_MAINNET_RPC_SERVER_URL || 'http://14.63.24.92:34591', // 1컴
             contractName: CONTRACT_NAME,
             walletUrl: 'https://wallet.buster.org',
             helperUrl: 'https://helper.mainnet.buster.org',
